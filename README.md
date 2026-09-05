@@ -26,7 +26,7 @@ Stack
 
  Reach me
 
-- [LinkedIn]([#](https://www.linkedin.com/in/aderibigbe-bada-331a914b/) · [Email](rasak.bada@gmail.com)
+- [LinkedIn](https://www.linkedin.com/in/aderibigbe-bada-331a914b/) · [Email](rasak.bada@gmail.com)
 
 ---
 Currently exploring: quant strategy design, AI-assisted SaaS tooling, and clean full-stack architecture.
