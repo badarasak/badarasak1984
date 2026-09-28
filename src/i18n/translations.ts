@@ -42,7 +42,26 @@ type TranslationKey =
   | 'howToPlay'
   | 'rulesTitle'
   | 'rulesBody'
-  | 'close';
+  | 'close'
+  | 'dashboard'
+  | 'totalGames'
+  | 'wins'
+  | 'losses'
+  | 'draws'
+  | 'winRate'
+  | 'recentGames'
+  | 'noGames'
+  | 'clearStats'
+  | 'confirmClear'
+  | 'byDifficulty'
+  | 'characterUsage'
+  | 'bestStreak'
+  | 'currentStreak'
+  | 'win'
+  | 'loss'
+  | 'vs'
+  | 'you'
+  | 'opponent';
 
 export const translations: Record<Language, Record<TranslationKey, string>> = {
   en: {
@@ -89,6 +108,25 @@ export const translations: Record<Language, Record<TranslationKey, string>> = {
     rulesBody:
       'Each player owns one row of 6 pits with 4 seeds each. On your turn, pick up all seeds from one of your pits and sow them one-by-one into consecutive pits counter-clockwise (skipping the starting pit). If your last seed lands in an opponent\'s pit making it exactly 2 or 3, you capture those seeds — and keep capturing backwards if the previous pits also total 2 or 3. You cannot leave your opponent with zero seeds if another move is possible. The game ends when one side is empty; the player with the most captured seeds wins!',
     close: 'Close',
+    dashboard: 'Dashboard',
+    totalGames: 'Total Games',
+    wins: 'Wins',
+    losses: 'Losses',
+    draws: 'Draws',
+    winRate: 'Win Rate',
+    recentGames: 'Recent Games',
+    noGames: 'No games played yet. Start playing to see your stats!',
+    clearStats: 'Clear All Stats',
+    confirmClear: 'Are you sure you want to clear all game data?',
+    byDifficulty: 'By Difficulty',
+    characterUsage: 'Character Usage',
+    bestStreak: 'Best Streak',
+    currentStreak: 'Current Streak',
+    win: 'Win',
+    loss: 'Loss',
+    vs: 'vs',
+    you: 'You',
+    opponent: 'Opponent',
   },
   yo: {
     title: 'Ayo Ọ̀pẹ̀lẹ̀',
@@ -134,5 +172,24 @@ export const translations: Record<Language, Record<TranslationKey, string>> = {
     rulesBody:
       'Ọkọ̀ọ̀kan ló ní 6 gèè ọkọ̀ọ̀kan pẹ̀lú 4 orísun. Ní ìyípadà rẹ, mú gbogbo orísun nínú gèè kan, kí o sì wá wọ́n lẹ́ẹ̀kọ̀ọ̀kan sínú gèè tó ń bọ̀ lọ́wọ́ (kí o má wọ́ sínú gèè tí o ti mú kúrò). Tí orísun tí ó kẹ́yìn bá wọ́ sínú gèè ọ̀tá rẹ, kí ó sì jọ́kọ́ mẹ́rin tàbí mẹ́ta, o ti mú orísun náà — kí o sì tè sí ẹ̀yìn tí ó bá ń jọ́kọ́ mẹ́rin tàbí mẹ́ta. O lè má fi ọ̀tá rẹ lẹ́rùpẹ̀ tí ìyípadà mìíràn bá wà. Ìgbá ná á parí nígbà tí ẹgbẹ̀ kan bá kò ní orísun; ẹni tí ó mú orísun pọ̀ jọ ni olú-ọrọ̀!',
     close: 'Ti',
+    dashboard: 'Páápá Ìjọ́wọ́',
+    totalGames: 'Gbogbo Ìgbá',
+    wins: 'Ìṣẹ́gun',
+    losses: 'Ìṣẹ́kú',
+    draws: 'Dọ́gọ̀',
+    winRate: 'Ìpele Ìṣẹ́gun',
+    recentGames: 'Ìgbá Tó Ṣẹ́',
+    noGames: 'A kò tí ì ṣeré. Bẹ̀rẹ̀ ìgbá láti rí ìpò rẹ!',
+    clearStats: 'Pa Gbogbo Àyọ',
+    confirmClear: 'Ṣó dá ẹkọ́ pé o fẹ́ pa gbogbo àyọ rẹ?',
+    byDifficulty: 'Nípa Iye Ìyì',
+    characterUsage: 'Lílò Ìṣẹ́',
+    bestStreak: 'Ìtẹ́wọ́ Tó Dára Jọ̀',
+    currentStreak: 'Ìtẹ́wọ́ Lọ́wọ́',
+    win: 'Ìṣẹ́gun',
+    loss: 'Ìṣẹ́kú',
+    vs: 'pẹ̀lú',
+    you: 'Ìwọ',
+    opponent: 'Ọ̀tá',
   },
 };

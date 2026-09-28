@@ -510,6 +510,214 @@ button {
   background: rgba(255,255,255,.14);
 }
 
+/* ===== DASHBOARD ===== */
+.dashboard-screen {
+  width: 100%;
+  max-width: 700px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 12px;
+}
+
+.dashboard-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0 8px;
+}
+
+.dashboard-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 20px;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, var(--wood-mid), var(--wood-dark));
+  border-radius: 14px;
+  padding: 14px 6px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,.06);
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--gold-bright);
+}
+
+.stat-label {
+  font-size: .6rem;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+.stat-win .stat-value { color: #4ade80; }
+.stat-loss .stat-value { color: #f87171; }
+.stat-draw .stat-value { color: var(--text-dim); }
+
+.streak-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.streak-card {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, var(--wood-mid), var(--wood-dark));
+  border-radius: 14px;
+  padding: 14px 16px;
+  border: 1px solid rgba(255,255,255,.06);
+}
+
+.streak-icon { font-size: 1.8rem; }
+.streak-value { font-size: 1.5rem; font-weight: 800; color: var(--gold-bright); }
+.streak-label { font-size: .7rem; color: var(--text-dim); }
+
+.dashboard-section { margin-bottom: 16px; }
+
+.dashboard-section-title {
+  font-size: .85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-dim);
+  margin-bottom: 10px;
+}
+
+.difficulty-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.difficulty-name {
+  width: 80px;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.difficulty-bar {
+  flex: 1;
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(0,0,0,.3);
+  overflow: hidden;
+}
+
+.difficulty-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--gold), #b8860b);
+  transition: width .3s;
+}
+
+.difficulty-stats {
+  font-size: .72rem;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+.char-usage-row { display: flex; gap: 10px; }
+
+.char-usage-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: rgba(0,0,0,.2);
+  border-radius: 12px;
+  padding: 12px 4px;
+}
+
+.char-usage-emoji { font-size: 1.6rem; }
+.char-usage-count { font-size: 1.1rem; font-weight: 700; color: var(--gold); }
+
+.recent-games-list { display: flex; flex-direction: column; gap: 6px; }
+
+.recent-game {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(0,0,0,.2);
+}
+
+.recent-game.win { border-left: 3px solid #4ade80; }
+.recent-game.loss { border-left: 3px solid #f87171; }
+.recent-game.draw { border-left: 3px solid var(--text-dim); }
+
+.recent-game-icon { font-size: 1.1rem; }
+
+.recent-game-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.recent-game-mode { font-size: .8rem; font-weight: 600; color: var(--text); }
+.recent-game-score { font-size: .75rem; color: var(--text-dim); }
+.recent-game-date { font-size: .72rem; color: var(--text-dim); }
+
+.no-games {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: .85rem;
+  padding: 20px;
+}
+
+.clear-stats-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border-radius: 12px;
+  font-size: .9rem;
+  font-weight: 600;
+  background: rgba(248,113,113,.1);
+  color: #f87171;
+  border: 1px solid rgba(248,113,113,.2);
+  transition: background .2s;
+}
+
+.clear-stats-btn:active { background: rgba(248,113,113,.2); }
+
+.dashboard-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border-radius: 14px;
+  font-size: .95rem;
+  font-weight: 600;
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+  transition: background .2s;
+}
+
+.dashboard-btn:active { background: rgba(255,255,255,.12); }
+
+@media (max-width: 480px) {
+  .stat-grid { grid-template-columns: repeat(3, 1fr); }
+  .stat-card:nth-child(4) { grid-column: 1 / 2; }
+  .stat-card:nth-child(5) { grid-column: 2 / 4; }
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-height: 700px) {
   .menu-decoration { font-size: 2rem; }

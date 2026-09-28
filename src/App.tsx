@@ -4,9 +4,10 @@ import { LanguageProvider } from './i18n/LanguageContext';
 import { soundManager } from './sound/soundManager';
 import MainMenu from './components/MainMenu';
 import GameScreen from './components/GameScreen';
+import Dashboard from './components/Dashboard';
 
 export default function App() {
-  const [screen, setScreen] = useState<'menu' | 'game'>('menu');
+  const [screen, setScreen] = useState<'menu' | 'game' | 'dashboard'>('menu');
   const [settings, setSettings] = useState<GameSettings>({
     mode: 'ai',
     difficulty: 'intermediate',
@@ -34,6 +35,11 @@ export default function App() {
     setScreen('game');
   }, [settings.soundEnabled]);
 
+  const openDashboard = useCallback(() => {
+    soundManager.playClick();
+    setScreen('dashboard');
+  }, []);
+
   const backToMenu = useCallback(() => {
     soundManager.playClick();
     setScreen('menu');
@@ -42,14 +48,16 @@ export default function App() {
   return (
     <LanguageProvider language={settings.language} setLanguage={setLanguage}>
       <div className="app">
-        {screen === 'menu' ? (
+        {screen === 'menu' && (
           <MainMenu
             settings={settings}
             setSettings={setSettings}
             onStart={startGame}
             onToggleSound={toggleSound}
+            onOpenDashboard={openDashboard}
           />
-        ) : (
+        )}
+        {screen === 'game' && (
           <GameScreen
             settings={settings}
             setSettings={setSettings}
@@ -57,6 +65,7 @@ export default function App() {
             onToggleSound={toggleSound}
           />
         )}
+        {screen === 'dashboard' && <Dashboard onBack={backToMenu} />}
       </div>
     </LanguageProvider>
   );

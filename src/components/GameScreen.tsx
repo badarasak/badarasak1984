@@ -1,8 +1,10 @@
+import { useRef, useEffect } from 'react';
 import { GameSettings } from '../game/types';
 import { useLanguage } from '../i18n/LanguageContext';
 import { useAyoGame } from '../hooks/useAyoGame';
 import { getLegalMoves, pitOwner } from '../game/engine';
 import { soundManager } from '../sound/soundManager';
+import { saveGame } from '../game/stats';
 import Board from './Board';
 import { CHARACTERS } from '../game/types';
 
@@ -25,6 +27,28 @@ export default function GameScreen({ settings, onBackToMenu, onToggleSound }: Pr
     !state.gameOver &&
     !animating &&
     (settings.mode === 'human' || state.currentPlayer === 0);
+
+  // Record game result once when the game ends
+  const recordedRef = useRef(false);
+  useEffect(() => {
+    if (state.gameOver && !recordedRef.current) {
+      const result = state.winner === -1 ? 'draw' : state.winner === 0 ? 'win' : 'loss';
+      saveGame({
+        id: `${Date.now()}-${Math.random().toString(36).slice(2)}`,
+        date: Date.now(),
+        mode: settings.mode,
+        difficulty: settings.difficulty,
+        character: settings.character,
+        result,
+        playerScore: state.scores[0],
+        opponentScore: state.scores[1],
+      });
+      recordedRef.current = true;
+    }
+    if (!state.gameOver) {
+      recordedRef.current = false;
+    }
+  }, [state.gameOver, state.winner, state.scores, settings]);
 
   const clickablePits = isPlayerTurn ? getLegalMoves(state, state.currentPlayer) : [];
 

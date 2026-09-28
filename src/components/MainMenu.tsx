@@ -7,9 +7,10 @@ interface Props {
   setSettings: React.Dispatch<React.SetStateAction<GameSettings>>;
   onStart: () => void;
   onToggleSound: () => void;
+  onOpenDashboard: () => void;
 }
 
-export default function MainMenu({ settings, setSettings, onStart, onToggleSound }: Props) {
+export default function MainMenu({ settings, setSettings, onStart, onToggleSound, onOpenDashboard }: Props) {
   const { t, language, setLanguage } = useLanguage();
 
   const setMode = (mode: GameMode) => {
@@ -115,6 +116,9 @@ export default function MainMenu({ settings, setSettings, onStart, onToggleSound
 
         <button className="start-btn" onClick={onStart}>
           {t('startGame')} ▶
+        </button>
+        <button className="dashboard-btn" onClick={onOpenDashboard}>
+          📊 {t('dashboard')}
         </button>
       </div>
     </div>
